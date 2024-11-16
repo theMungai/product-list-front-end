@@ -3,53 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
     <title>Product List</title>
 </head>
 <body>
 
     <div class="main">
-        <div class="deserts">
-            <h1>Deserts</h1>
-            <div class="products-grid">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="images/image-waffle-desktop.jpg" alt="">
-                    </div>
-                    <button> <img src="/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-
-                    <div class="product-details">
-                        <p class="main-product">Waffle</p>
-                        <p class="full-product">Waffle with Berries</p>
-                        <p class="product-price">$6.50</p>
-                    </div>
-                </div>
-
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="images/image-waffle-desktop.jpg" alt="">
-                    </div>
-                    <button> <img src="/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-
-                    <div class="product-details">
-                        <p class="main-product">Waffle</p>
-                        <p class="full-product">Waffle with Berries</p>
-                        <p class="product-price">$6.50</p>
-                    </div>
-                </div>
-
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="images/image-waffle-desktop.jpg" alt="">
-                    </div>
-                    <button> <img src="/images/icon-add-to-cart.svg" alt=""> Add to Cart</button>
-
-                    <div class="product-details">
-                        <p class="main-product">Waffle</p>
-                        <p class="full-product">Waffle with Berries</p>
-                        <p class="product-price">$6.50</p>
-                    </div>
-                </div>
+        <div class="desserts">
+            <h1>Desserts</h1>
+            <div class="products-grid js-product-grid">
+               
             </div>
         </div>
 
@@ -59,9 +26,66 @@
                 <img src="/images/illustration-empty-cart.svg" alt="">
                 <p>Your added items will appear here</p>
             </div>
+
+            <div class="cart-with-items">
+                <div class="cart-items-container">
+                    <div class="added-items">
+                        <div class="full-product-in-cart">
+                            <p style="color: hsl(14, 65%, 9%); font-weight: 500;">Classic Tiramisu</p>
+                        </div>
+                        
+                        <div class="cart-price-product">
+                            <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">1x</span>
+                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $5.50</span>
+                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$5.50</span>
+                        </div>
+
+
+                    </div>
+                    <div class="remove-item">
+                        <img src="/images/icon-remove-item.svg" alt="" style="cursor: pointer;">
+                    </div>
+
+                </div>
+
+                <div class="total">
+                    <p>Order Total</p>
+                    <h1 class="full-cart-total">$46.50</h1>
+                </div>
+
+                <div class="carbon-neutral">
+                    <img src="images/icon-carbon-neutral.svg" alt="">
+                    <p>This is a <span>carbon-neutral</span> delivery</p>
+                </div>
+
+                <button class="order-button">Confirm Order</button>
+            </div>
             
         </div>
     </div>
+
+            <!-- Pop up modal -->
+
+            <div class="pop-up-container">
+                <div class="pop-up-details">
+                    <div class="pop-up-header">
+                        <img src="images/icon-order-confirmed.svg" alt="">
+                        <h1>Order Confirmed</h1>
+                        <p>We hope you enjoy your food</p>
+                    </div>
+    
+                    <div class="items-confirmed">
+    
+                    </div>
+    
+                    <div class="total">
+                        <p>Order Total</p>
+                        <h1>$46.50</h1>
+                    </div>
+    
+                    <button class="order-button">Confirm Order</button>
+                </div>
+            </div>
 
     
 
