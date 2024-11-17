@@ -80,13 +80,13 @@ const generatedCart = `
                 <div class="cart-items-container">
                     <div class="added-items">
                         <div class="full-product-in-cart">
-                            <p style="color: hsl(14, 65%, 9%); font-weight: 500;"> <!--Classic Tiramisu --></p>
+                            <p style="color: hsl(14, 65%, 9%); font-weight: 500;"> ${productName}</p>
                         </div>
                         <!--  -->
                         <div class="cart-price-product">
-                            <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">1x</span>
-                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $5.50</span>
-                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$5.50</span>
+                            <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">${cartQuantity}x</span>
+                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${product.price}</span>
+                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price) * cartQuantity}</span>
                         </div>
 
 
