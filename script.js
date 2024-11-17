@@ -8,7 +8,7 @@ products.forEach((product) => {
             <div class="product-image">
                 <img src="${product.image.mobile}" alt="">
             </div>
-            <button class="add-to-cart-button"><img src="/images/icon-add-to-cart.svg" alt="" class="image-cart-button"> Add to Cart</button>
+            <button class="add-to-cart-button" data-product-name = "${product.name}"><img src="/images/icon-add-to-cart.svg" alt="" class="image-cart-button"> Add to Cart</button>
 
             <div class="product-details">
                 <p class="main-product">${product.category}</p>
@@ -23,24 +23,39 @@ products.forEach((product) => {
 document.querySelector(".js-product-grid").innerHTML = productsHTML
 
 // Add to Cart Button changing its state
+
+let cartQuantity = 0
+document.querySelector(".cart-quantity-display").innerHTML = cartQuantity;
 document.querySelectorAll(".add-to-cart-button").forEach((button) => {
     button.addEventListener("click", () => {
         button.classList.add("js-clicked-button");
         button.innerHTML = `
         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2" class = "minus-button"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg>
-        <p>0</p>
+        <p>${cartQuantity}</p>
         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10" class = "plus-button"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>
         `
 
 
         // Giving the "plus Icon" its functionality
+        
         const emptyCart = document.querySelector(".cart-empty");
         const cartWithItems = document.querySelector(".cart-with-items");
         button.querySelectorAll(".plus-button").forEach((plusIcon) => {
             plusIcon.addEventListener("click", () => {
+                cartQuantity += 1
                 emptyCart.style.display = "none"
                 cartWithItems.style.display = "block"
             });
+        });
+
+        // Giving the "minus Icon" its functionality
+        button.querySelectorAll(".minus-button").forEach((minusIcon) => {
+            minusIcon.addEventListener("click", () => {
+                
+                if(cartQuantity > 0){
+                    cartQuantity = cartQuantity - 1;
+                }
+            })
         });
     });
     
@@ -53,11 +68,18 @@ document.querySelector(".js-confirm-order").addEventListener("click", () => {
     popModal.style.display = "block"
 });
 
+
+// Refreshing the page after  clicking Start New Order Button
 document.querySelector(".js-start-new-order").addEventListener("click", () => {
     window.location.reload(true)
 })
 
 
+// Remove Item Button
+const addedItems = document.querySelector(".added-items")
+document.querySelector(".remove-item-button").addEventListener("click", () => {
+    addedItems.removeChild(addedItems)
+})
 
 
 
