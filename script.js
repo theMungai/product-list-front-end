@@ -12,7 +12,7 @@ products.forEach((product) => {
 
             <div class="product-details">
                 <p class="main-product">${product.category}</p>
-                <p class="full-product">${product.category}</p>
+                <p class="full-product">${product.name}</p>
                 <p class="product-price">$${product.price.toFixed(2)}</p>
             </div>
         </div>
@@ -25,7 +25,7 @@ document.querySelector(".js-product-grid").innerHTML = productsHTML
 // Add to Cart Button changing its state
 
 let cartQuantity = 0
-document.querySelector(".cart-quantity-display").innerHTML = cartQuantity;
+const cartQuantityDisplay = document.querySelector(".cart-quantity-display");
 document.querySelectorAll(".add-to-cart-button").forEach((button) => {
     button.addEventListener("click", () => {
         button.classList.add("js-clicked-button");
@@ -37,14 +37,25 @@ document.querySelectorAll(".add-to-cart-button").forEach((button) => {
 
 
         // Giving the "plus Icon" its functionality
-        
+        const addedItems = [{}]
         const emptyCart = document.querySelector(".cart-empty");
         const cartWithItems = document.querySelector(".cart-with-items");
         button.querySelectorAll(".plus-button").forEach((plusIcon) => {
             plusIcon.addEventListener("click", () => {
+                //  accessing each product Name when clicked
+                const productName = button.dataset.productName;
+                console.log(productName)
                 cartQuantity += 1
+                cartQuantityDisplay.innerHTML = cartQuantity
                 emptyCart.style.display = "none"
-                cartWithItems.style.display = "block"
+                cartWithItems.style.display = "block";
+                addedItems.forEach((item) => {
+                    addedItems.push({
+                        productName : productName,
+                        cartQuantity : cartQuantity
+                    })
+                })
+                console.log(addedItems)
             });
         });
 
@@ -54,12 +65,50 @@ document.querySelectorAll(".add-to-cart-button").forEach((button) => {
                 
                 if(cartQuantity > 0){
                     cartQuantity = cartQuantity - 1;
+                    cartQuantityDisplay.innerHTML = cartQuantity
                 }
             })
         });
     });
     
 });
+
+// Generating Cart
+
+const generatedCart = `
+<div class="cart-with-items">
+                <div class="cart-items-container">
+                    <div class="added-items">
+                        <div class="full-product-in-cart">
+                            <p style="color: hsl(14, 65%, 9%); font-weight: 500;"> <!--Classic Tiramisu --></p>
+                        </div>
+                        <!--  -->
+                        <div class="cart-price-product">
+                            <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">1x</span>
+                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $5.50</span>
+                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$5.50</span>
+                        </div>
+
+
+                    </div>
+                    <div class="remove-item">
+                        <img src="/images/icon-remove-item.svg" alt="" style="cursor: pointer;" class="remove-item-button">
+                    </div>
+
+                </div>
+
+                <div class="total">
+                    <p>Order Total</p>
+                    <h1 class="full-cart-total">$46.50</h1>
+                </div>
+
+                <div class="carbon-neutral">
+                    <img src="images/icon-carbon-neutral.svg" alt="">
+                    <p>This is a <span>carbon-neutral</span> delivery</p>
+                </div>
+
+                <button class="order-button js-confirm-order">Confirm Order</button>
+            </div>`
 
 
 // Making pop up modal interactive 
@@ -76,10 +125,10 @@ document.querySelector(".js-start-new-order").addEventListener("click", () => {
 
 
 // Remove Item Button
-const addedItems = document.querySelector(".added-items")
-document.querySelector(".remove-item-button").addEventListener("click", () => {
-    addedItems.removeChild(addedItems)
-})
+// const addedItems = document.querySelector(".added-items")
+// document.querySelector(".remove-item-button").addEventListener("click", () => {
+//     addedItems.removeChild(addedItems)
+// })
 
 
 
