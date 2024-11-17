@@ -1,3 +1,4 @@
+
 //  Looping through the "products" array to get products from the array instead of typing them manually in the HTML.
 
 let productsHTML =  ""
@@ -21,6 +22,7 @@ products.forEach((product) => {
 
 document.querySelector(".js-product-grid").innerHTML = productsHTML
 
+// Add to Cart Button changing its state
 document.querySelectorAll(".add-to-cart-button").forEach((button) => {
     button.addEventListener("click", () => {
         button.classList.add("js-clicked-button");
@@ -29,8 +31,36 @@ document.querySelectorAll(".add-to-cart-button").forEach((button) => {
         <p>0</p>
         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10" class = "plus-button"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>
         `
+
+
+        // Giving the "plus Icon" its functionality
+        const emptyCart = document.querySelector(".cart-empty");
+        const cartWithItems = document.querySelector(".cart-with-items");
+        button.querySelectorAll(".plus-button").forEach((plusIcon) => {
+            plusIcon.addEventListener("click", () => {
+                emptyCart.style.display = "none"
+                cartWithItems.style.display = "block"
+            });
+        });
     });
+    
 });
+
+
+// Making pop up modal interactive 
+const popModal = document.querySelector(".pop-up-container");
+document.querySelector(".js-confirm-order").addEventListener("click", () => {
+    popModal.style.display = "block"
+});
+
+document.querySelector(".js-start-new-order").addEventListener("click", () => {
+    window.location.reload(true)
+})
+
+
+
+
+
 
 
 
