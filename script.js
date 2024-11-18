@@ -30,9 +30,9 @@ document.querySelectorAll(".add-to-cart-button").forEach((button) => {
     button.addEventListener("click", () => {
         button.classList.add("js-clicked-button");
         button.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2" class = "minus-button"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2" class = "minus-button"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z" class = "svg-path"/></svg>
         <p>${cartQuantity}</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10" class = "plus-button"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10" class = "plus-button"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z" class = "svg-path"/></svg>
         `
 
 
@@ -74,41 +74,47 @@ document.querySelectorAll(".add-to-cart-button").forEach((button) => {
 });
 
 // Generating Cart
+// let generatedCart = "";
+// products.forEach((product) => {
+//     generatedCart = generatedCart + 
+//     `
+//         <div class="cart-with-items">
+//             <div class="cart-items-container">
+//                 <div class="added-items">
+//                     <div class="full-product-in-cart">
+//                         <p style="color: hsl(14, 65%, 9%); font-weight: 500;"> ${productName}</p>
+//                     </div>
+                    
+//                     <div class="cart-price-product">
+//                         <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">${cartQuantity}x</span>
+//                         <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${product.price}</span>
+//                         <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price) * cartQuantity}</span>
+//                     </div>
 
-const generatedCart = `
-<div class="cart-with-items">
-                <div class="cart-items-container">
-                    <div class="added-items">
-                        <div class="full-product-in-cart">
-                            <p style="color: hsl(14, 65%, 9%); font-weight: 500;"> ${productName}</p>
-                        </div>
-                        <!--  -->
-                        <div class="cart-price-product">
-                            <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">${cartQuantity}x</span>
-                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${product.price}</span>
-                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price) * cartQuantity}</span>
-                        </div>
 
+//                 </div>
+//                 <div class="remove-item">
+//                     <img src="/images/icon-remove-item.svg" alt="" style="cursor: pointer;" class="remove-item-button">
+//                 </div>
 
-                    </div>
-                    <div class="remove-item">
-                        <img src="/images/icon-remove-item.svg" alt="" style="cursor: pointer;" class="remove-item-button">
-                    </div>
+//             </div>
 
-                </div>
+//             <div class="total">
+//                 <p>Order Total</p>
+//                 <h1 class="full-cart-total">$46.50</h1>
+//             </div>
 
-                <div class="total">
-                    <p>Order Total</p>
-                    <h1 class="full-cart-total">$46.50</h1>
-                </div>
+//             <div class="carbon-neutral">
+//                 <img src="images/icon-carbon-neutral.svg" alt="">
+//                 <p>This is a <span>carbon-neutral</span> delivery</p>
+//             </div>
 
-                <div class="carbon-neutral">
-                    <img src="images/icon-carbon-neutral.svg" alt="">
-                    <p>This is a <span>carbon-neutral</span> delivery</p>
-                </div>
+//             <button class="order-button js-confirm-order">Confirm Order</button>
+//         </div>
+//     `;
 
-                <button class="order-button js-confirm-order">Confirm Order</button>
-            </div>`
+// })
+
 
 
 // Making pop up modal interactive 
