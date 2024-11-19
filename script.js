@@ -1,6 +1,6 @@
 
 //  Looping through the "products" array to get products from the array instead of typing them manually in the HTML.
-
+const cart = []
 let productsHTML =  ""
 products.forEach((product) => {
     productsHTML = productsHTML + `
@@ -22,7 +22,6 @@ products.forEach((product) => {
 
 document.querySelector(".js-product-grid").innerHTML = productsHTML
 
-//  1. Modifying an add to cart button to change it's state on click.
 //  2. When the plus svg is clicked, it is supposed to add items to the cart.
 //  3. The product clicked should be the one to be add to the cart.
 //  4. When the minus icon is clicked it is supposed to reduce the item from the cart.
@@ -37,18 +36,19 @@ function modifyAddToCartBtn(){
 let cartQuantity = 0
 addToCartButton.forEach((button) => {
     button.addEventListener("click", () => {
-        // console.log(button)
+        console.log(button.dataset)
         button.classList.add("js-clicked-button");
         button.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2" class = "minus-button"><path fill="#fff" class="svg-path" d="M0 .375h10v1.25H0V.375Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2"  class = "minus-button" ><path fill="#fff" class="svg-path" d="M0 .375h10v1.25H0V.375Z"/></svg>
         
         <p> ${cartQuantity} </p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10" class = "plus-button"><path fill="#fff" class="svg-path" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>`
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10" class = "plus-button" ><path fill="#fff" class="svg-path" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>`
 
         // Accessing and modifying plus icon
         const plusIcon = button.querySelectorAll(".plus-button");
         plusIcon.forEach((button) => {
             button.addEventListener("click", () => {
+                console.log(button.dataset)
                 cartQuantity ++
             })
         })
@@ -63,13 +63,11 @@ addToCartButton.forEach((button) => {
                 }
             })
         })
+
+        document.querySelector(".cart-quantity-display").innerHTML = cartQuantity   
         
     })
 
-         
- 
-
-    
 })
 
 
