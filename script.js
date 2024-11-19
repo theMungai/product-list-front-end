@@ -74,47 +74,75 @@ document.querySelectorAll(".add-to-cart-button").forEach((button) => {
 });
 
 // Generating Cart
-// let generatedCart = "";
-// products.forEach((product) => {
-//     generatedCart = generatedCart + 
-//     `
-//         <div class="cart-with-items">
-//             <div class="cart-items-container">
-//                 <div class="added-items">
-//                     <div class="full-product-in-cart">
-//                         <p style="color: hsl(14, 65%, 9%); font-weight: 500;"> ${productName}</p>
-//                     </div>
+let generatedCart = "";
+products.forEach((product) => {
+    generatedCart = generatedCart + 
+    `
+        <div class="cart-with-items">
+            <div class="cart-items-container">
+                <div class="added-items">
+                    <div class="full-product-in-cart">
+                        <p style="color: hsl(14, 65%, 9%); font-weight: 500;"> ${productName}</p>
+                    </div>
                     
-//                     <div class="cart-price-product">
-//                         <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">${cartQuantity}x</span>
-//                         <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${product.price}</span>
-//                         <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price) * cartQuantity}</span>
-//                     </div>
+                    <div class="cart-price-product">
+                        <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">${cartQuantity}x</span>
+                        <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${product.price}</span>
+                        <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price) * cartQuantity}</span>
+                    </div>
 
 
-//                 </div>
-//                 <div class="remove-item">
-//                     <img src="/images/icon-remove-item.svg" alt="" style="cursor: pointer;" class="remove-item-button">
-//                 </div>
+                </div>
+                <div class="remove-item">
+                    <img src="/images/icon-remove-item.svg" alt="" style="cursor: pointer;" class="remove-item-button">
+                </div>
 
-//             </div>
+            </div>
 
-//             <div class="total">
-//                 <p>Order Total</p>
-//                 <h1 class="full-cart-total">$46.50</h1>
-//             </div>
+            <div class="total">
+                <p>Order Total</p>
+                <h1 class="full-cart-total">$46.50</h1>
+            </div>
 
-//             <div class="carbon-neutral">
-//                 <img src="images/icon-carbon-neutral.svg" alt="">
-//                 <p>This is a <span>carbon-neutral</span> delivery</p>
-//             </div>
+            <div class="carbon-neutral">
+                <img src="images/icon-carbon-neutral.svg" alt="">
+                <p>This is a <span>carbon-neutral</span> delivery</p>
+            </div>
 
-//             <button class="order-button js-confirm-order">Confirm Order</button>
-//         </div>
-//     `;
+            <button class="order-button js-confirm-order">Confirm Order</button>
+        </div>
+    `;
 
-// })
+    document.querySelector(".cart-with-items").innerHTML = generatedCart
 
+})
+
+
+
+//Pop up modal
+
+const popupModal = `
+        <div class="pop-up-container">
+        <div class="pop-up-details">
+            <div class="pop-up-header">
+                <img src="images/icon-order-confirmed.svg" alt="">
+                <h1 style="color:hsl(14, 65%, 9%) ;">Order Confirmed</h1>
+                <p style="color:hsl(7, 20%, 60%) ;">We hope you enjoy your food</p>
+            </div>
+
+            <div class="items-confirmed">
+
+            </div>
+
+            <div class="total">
+                <p>Order Total</p>
+                <h1>$46.50</h1>
+            </div>
+
+            <button class="order-button js-start-new-order">Start New Order</button>
+        </div>
+    </div>
+`;
 
 
 // Making pop up modal interactive 

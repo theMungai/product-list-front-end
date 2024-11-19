@@ -102,13 +102,36 @@ body{
 }
 
 .plus-button{
-   margin-left: 30px;  
+   margin-left: 30px;
+   width: 18px;
+    height: 18px;
+    padding: 3px;
+    cursor: pointer;
+    border: 1px solid var(--rose-50);
+    border-radius: 50%;
 }
+
 
 
 .minus-button {
     margin-right: 30px;
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+    cursor: pointer;
+    border: 1px solid var(--rose-50);
+    border-radius: 50%;
  }
+
+.plus-button:active,
+.minus-button:active {
+    .svg-path{
+        fill: var(--red);
+    }
+    background-color: var(--rose-50);
+}
+
+
 
 .main-product {
     color: var(--rose-400);
@@ -156,13 +179,27 @@ body{
 }
 .added-items {
     padding: 30px 0px;
-    border: 2px solid red;
 }
 
 .cart-items-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+.remove-item img{
+    width: 16px;
+    height: 16px;
+    padding: 3px;
+    cursor: pointer;
+    border: 1px solid var(--rose-300);
+    border-radius: 50%;
+}
+
+.remove-item img:hover{
+    border: 1px solid var(--rose-900);
+    filter: invert(27%) sepia(78%) saturate(5000%) hue-rotate(14deg) brightness(13%) contrast(85%);
 }
 
 .total {
