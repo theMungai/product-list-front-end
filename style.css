@@ -123,16 +123,6 @@ body{
     border-radius: 50%;
  }
 
-.plus-button:active,
-.minus-button:active {
-    .svg-path{
-        fill: var(--red);
-    }
-    background-color: var(--rose-50);
-}
-
-
-
 .main-product {
     color: var(--rose-400);
     font-size: 0.85rem;

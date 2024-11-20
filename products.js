@@ -75,7 +75,8 @@ const products = [
         name: "Red Velvet Cake",
         category: "Cake",
         price: 4.50
-     },
+     }
+     ,
      {
         image: {
             thumbnail: "images/image-brownie-thumbnail.jpg",
@@ -86,7 +87,8 @@ const products = [
         name: "Salted Caramel Brownie",
         category: "Brownie",
         price: 4.50
-     },
+    }
+    ,
      {
         image: {
             thumbnail: "images/image-panna-cotta-thumbnail.jpg",
