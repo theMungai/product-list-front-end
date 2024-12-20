@@ -97,6 +97,8 @@ body{
     font-weight: 400;
     border: none;
     padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .js-clicked-button:hover{

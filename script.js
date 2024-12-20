@@ -40,87 +40,41 @@ products.forEach((product) => {
 });
 
 document.querySelector(".js-product-grid").innerHTML = productsHTML
-let cartQuantity = 0;
-let matchingItem;
-document.querySelectorAll(".add-to-cart-button")
-    .forEach((button) => {
-        button.addEventListener("click", () => {
-            button.classList.add("js-clicked-button")
-            button.innerHTML = `
-                <img src = "images/icon-decrement-quantity.svg" class = "minus-button">
 
-                <p>${cartQuantity}</p>
-                
-                <img src = "images/icon-increment-quantity.svg" class = "plus-button">
-            `;
 
-            const plusIcon = button.querySelectorAll(".plus-button");
-            plusIcon.forEach((addButton) => {
-                addButton.addEventListener("click", () => {
-                    const productName = button.dataset.productName;
+const addToCartButton = document.querySelectorAll(".add-to-cart-button");
+addToCartButton.forEach((button) => {
+    const plusIcon = button.querySelector(".plus-button");
+    const minusIcon = button.querySelector(".minus-button");
+    const count = button.querySelector(".count");
 
-                //  to check if the product already exist in the cart 
+    let cartCount = 0
+    button.addEventListener("click", () => {
+        
+        button.classList.add("js-clicked-button");
+        button.innerHTML = `
+            <img src="images/icon-decrement-quantity.svg" alt="" class = "minus-button">
+            <p class = "count">${cartCount}</p>
+            <img src="images/icon-increment-quantity.svg" alt="" class = "plus-button">
+        `;
 
-                cart.forEach((cartItem) => {
-                    if(productName === cartItem.productName){
-                        matchingItem = cartItem
-                    }
-                });
+        
 
-                if (matchingItem){
-                    matchingItem.quantity =+ 1;
-                }
-                else {
-                    cart.push({
-                        productName : productName,
-                        quantity : 1
-                    });
-                }
+        const updatedPlusIcon = button.querySelector(".plus-button");
+        const updatedMinusIcon = button.querySelector(".minus-button");
+        const updatedCount = button.querySelector(".count");
 
-                cart.forEach((cartItem) => {
-                    cartQuantity = cartQuantity + 1
-                });
-
-                    
-            })
-
-            const minusIcon = button.querySelectorAll(".minus-button");
-            minusIcon.forEach((reduceButton) => {
-                reduceButton.addEventListener("click", () => {
-                    const productName = button.dataset.productName;
-
-                    //  to check if the product already exist in the cart 
-                    cart.forEach((cartItem) => {
-                        if(productName === cartItem.productName){
-                            matchingItem = cartItem
-                        }
-                    });
-
-                    if (matchingItem){
-                        matchingItem.quantity =+ 1;
-                    }
-                    else {
-                        cart.push({
-                            productName : productName,
-                            quantity : 1
-                        });
-                    }
-
-                    cart.forEach((cartItem) => {
-
-                        if(cartQuantity > 0){
-                            cartQuantity = cartQuantity - 1
-                        }
-                        
-                    });
-                    
-                    
-                })
-            });
-            document.querySelector(".cart-quantity-display")
-            .innerHTML = cartQuantity 
+        updatedPlusIcon.addEventListener("click", () => {
+            cartCount += 1;
+            updatedCount.textContent = cartCount
+            console.log("cli")
         });
+
+        updatedMinusIcon.addEventListener("click", () => {
+            if(cartCount > 0){
+                cartCount -= 1
+            }
+        })
+
     });
 });
-
-
