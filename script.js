@@ -44,9 +44,9 @@ document.querySelector(".js-product-grid").innerHTML = productsHTML
 
 const addToCartButton = document.querySelectorAll(".add-to-cart-button");
 addToCartButton.forEach((button) => {
-    const plusIcon = button.querySelector(".plus-button");
-    const minusIcon = button.querySelector(".minus-button");
-    const count = button.querySelector(".count");
+    // const plusIcon = button.querySelector(".plus-button");
+    // const minusIcon = button.querySelector(".minus-button");
+    // const count = button.querySelector(".count");
 
     let cartCount = 0
     button.addEventListener("click", () => {
@@ -59,22 +59,69 @@ addToCartButton.forEach((button) => {
         `;
 
         
-
         const updatedPlusIcon = button.querySelector(".plus-button");
         const updatedMinusIcon = button.querySelector(".minus-button");
         const updatedCount = button.querySelector(".count");
 
+        const emptyCart = document.querySelector(".cart-empty");
+        const loadedCart = document.querySelector(".cart-with-items");
+        const quantityDisplay = document.querySelector(".cart-quantity-display");
+
         updatedPlusIcon.addEventListener("click", () => {
             cartCount += 1;
-            updatedCount.textContent = cartCount
-            console.log("cli")
+            updatedCount.textContent = cartCount;
+            quantityDisplay.textContent = cartCount
+            emptyCart.style.display = "none";
+            loadedCart.style.display = "block"
         });
 
         updatedMinusIcon.addEventListener("click", () => {
             if(cartCount > 0){
-                cartCount -= 1
+                cartCount -= 1;
+                quantityDisplay.textContent = cartCount
             }
-        })
+        });
+
+        let cartHTML = "";
+
+        products.forEach((product) => {
+            cartHTML = cartHTML + 
+            `
+                <div class="cart-items-container">
+                    <div class="added-items">
+                        <div class="full-product-in-cart">
+                            <p style="color: hsl(14, 65%, 9%); font-weight: 500;">${product.name}</p>
+                        </div>
+
+                        <div class="cart-price-product">
+                            <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">${cartCount}x</span>
+                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${product.price}</span>
+                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price) * cartCount}</span>
+                        </div>
+
+                    </div>
+                    <div class="remove-item">
+                        <img src="/images/icon-remove-item.svg" alt="" class="remove-item-button">
+                    </div>
+
+                </div>
+
+                <div class="total">
+                    <p>Order Total</p>
+                    <h1 class="full-cart-total">$46.50</h1>
+                </div> 
+
+                <div class="carbon-neutral">
+                    <img src="images/icon-carbon-neutral.svg" alt="">
+                    <p>This is a <span>carbon-neutral</span> delivery</p>
+                </div>
+
+                <button class="order-button js-confirm-order">Confirm Order</button>
+            
+            `;
+        });
+
+        document.querySelector(".cart-with-items").innerHTML = cartHTML
 
     });
 });
