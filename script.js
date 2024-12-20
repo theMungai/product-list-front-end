@@ -25,7 +25,7 @@ products.forEach((product) => {
                 </picture>
             </div>
 
-            <button class="add-to-cart-button" data-product-name = "${product.name}">
+            <button class="add-to-cart-button">
                 <img src="/images/icon-add-to-cart.svg" alt="" class="image-cart-button">
                 Add to Cart
             </button>
@@ -51,41 +51,9 @@ addToCartButton.forEach((button) => {
     let cartCount = 0
     button.addEventListener("click", () => {
         
-        button.classList.add("js-clicked-button");
-        button.innerHTML = `
-            <img src="images/icon-decrement-quantity.svg" alt="" class = "minus-button">
-            <p class = "count">${cartCount}</p>
-            <img src="images/icon-increment-quantity.svg" alt="" class = "plus-button">
-        `;
-
-        
-        const updatedPlusIcon = button.querySelector(".plus-button");
-        const updatedMinusIcon = button.querySelector(".minus-button");
-        const updatedCount = button.querySelector(".count");
-
-        const emptyCart = document.querySelector(".cart-empty");
-        const loadedCart = document.querySelector(".cart-with-items");
-        const quantityDisplay = document.querySelector(".cart-quantity-display");
-
-        updatedPlusIcon.addEventListener("click", () => {
-            cartCount += 1;
-            updatedCount.textContent = cartCount;
-            quantityDisplay.textContent = cartCount
-            emptyCart.style.display = "none";
-            loadedCart.style.display = "block"
-        });
-
-        updatedMinusIcon.addEventListener("click", () => {
-            if(cartCount > 0){
-                cartCount -= 1;
-                quantityDisplay.textContent = cartCount
-            }
-        });
-
         let cartHTML = "";
-
         products.forEach((product) => {
-            cartHTML = cartHTML + 
+            cartHTML =
             `
                 <div class="cart-items-container">
                     <div class="added-items">
@@ -95,8 +63,8 @@ addToCartButton.forEach((button) => {
 
                         <div class="cart-price-product">
                             <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">${cartCount}x</span>
-                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${product.price}</span>
-                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price) * cartCount}</span>
+                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${(product.price).toFixed(2)}</span>
+                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price * cartCount).toFixed(2)}</span>
                         </div>
 
                     </div>
@@ -108,7 +76,7 @@ addToCartButton.forEach((button) => {
 
                 <div class="total">
                     <p>Order Total</p>
-                    <h1 class="full-cart-total">$46.50</h1>
+                    <h1 class="full-cart-total">$${(product.price + product.price).toFixed(2)}</h1>
                 </div> 
 
                 <div class="carbon-neutral">
@@ -119,6 +87,38 @@ addToCartButton.forEach((button) => {
                 <button class="order-button js-confirm-order">Confirm Order</button>
             
             `;
+
+            button.classList.add("js-clicked-button");
+            button.innerHTML = `
+                <img src="images/icon-decrement-quantity.svg" alt="" class = "minus-button">
+                <p class = "count">${cartCount}</p>
+                <img src="images/icon-increment-quantity.svg" alt="" class = "plus-button" data-product-name = "${product.name}">
+            `;
+
+            
+            const updatedPlusIcon = button.querySelector(".plus-button");
+            const updatedMinusIcon = button.querySelector(".minus-button");
+            const updatedCount = button.querySelector(".count");
+
+            const emptyCart = document.querySelector(".cart-empty");
+            const loadedCart = document.querySelector(".cart-with-items");
+            const quantityDisplay = document.querySelector(".cart-quantity-display");
+
+            updatedPlusIcon.addEventListener("click", () => {
+                cartCount += 1;
+                console.log(updatedPlusIcon.dataset.productName)
+                updatedCount.textContent = cartCount;
+                quantityDisplay.textContent = cartCount
+                emptyCart.style.display = "none";
+                loadedCart.style.display = "block"
+            });
+
+            updatedMinusIcon.addEventListener("click", () => {
+                if(cartCount > 0){
+                    cartCount -= 1;
+                    quantityDisplay.textContent = cartCount
+                }
+            });
         });
 
         document.querySelector(".cart-with-items").innerHTML = cartHTML

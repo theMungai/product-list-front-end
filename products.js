@@ -75,8 +75,7 @@ const products = [
         name: "Red Velvet Cake",
         category: "Cake",
         price: 4.50
-     }
-     ,
+     },
      {
         image: {
             thumbnail: "images/image-brownie-thumbnail.jpg",
