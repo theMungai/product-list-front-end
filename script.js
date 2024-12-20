@@ -124,6 +124,7 @@ addToCartButton.forEach((button) => {
         document.querySelector(".cart-with-items").innerHTML = cartHTML;
 
         // Pop up Modal
+        
         const confirmOrder = document.querySelector(".js-confirm-order");
 
         confirmOrder.addEventListener("click", () => {
@@ -133,6 +134,34 @@ addToCartButton.forEach((button) => {
 
     });
 });
+
+
+
+let modalHTML = ""
+products.forEach((product) => {
+    modalHTML = `
+        <div class="pop-up-details">
+            <div class="pop-up-header">
+                <img src="images/icon-order-confirmed.svg" alt="">
+                <h1 style="color:hsl(14, 65%, 9%) ;">Order Confirmed</h1>
+                <p style="color:hsl(7, 20%, 60%) ;">We hope you enjoy your food</p>
+            </div>
+
+            <div class="items-confirmed">
+
+            </div>
+
+            <div class="total">
+                <p>Order Total</p>
+                <h1>$46.50</h1>
+            </div>
+
+            <button class="order-button js-start-new-order">Start New Order</button>
+        </div>
+    `;
+});
+
+document.querySelector(".pop-up-container").innerHTML = modalHTML
 
 // Remove item from cart
 
