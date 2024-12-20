@@ -52,14 +52,16 @@ body{
     gap: 2rem;
 }
 
-.product-image {
+.product-image-container {
     width: 100%;
 }
 
-.product-image img {
+.product-image-container img,
+.product-image-container picture {
     width: 100%;
     border-radius: 10px;
 }
+
 
 .add-to-cart-button{
     display: flex;
