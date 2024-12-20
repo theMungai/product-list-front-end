@@ -158,19 +158,23 @@ products.forEach((product) => {
 
             <button class="order-button js-start-new-order">Start New Order</button>
         </div>
-    `;
+    `;  
 });
 
 document.querySelector(".pop-up-container").innerHTML = modalHTML
 
 // Remove item from cart
-
 const removeItem = document.querySelectorAll(".remove-item-button");
 removeItem.forEach((button) => {
     button.addEventListener("click", () => {
         const addedItem = button.querySelector(".added-items");
         button.removeChild(addedItem)
     })
+});
+
+// Start New Order
+document.querySelector(".js-start-new-order").addEventListener("click", () => {
+    location.reload(true)
 })
 
 
