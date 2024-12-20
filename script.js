@@ -121,7 +121,27 @@ addToCartButton.forEach((button) => {
             });
         });
 
-        document.querySelector(".cart-with-items").innerHTML = cartHTML
+        document.querySelector(".cart-with-items").innerHTML = cartHTML;
+
+        // Pop up Modal
+        const confirmOrder = document.querySelector(".js-confirm-order");
+
+        confirmOrder.addEventListener("click", () => {
+            const popModal = document.querySelector(".pop-up-container");
+            popModal.style.display = "block"
+        });
 
     });
 });
+
+// Remove item from cart
+
+const removeItem = document.querySelectorAll(".remove-item-button");
+removeItem.forEach((button) => {
+    button.addEventListener("click", () => {
+        const addedItem = button.querySelector(".added-items");
+        button.removeChild(addedItem)
+    })
+})
+
+
