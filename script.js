@@ -44,9 +44,6 @@ document.querySelector(".js-product-grid").innerHTML = productsHTML
 
 const addToCartButton = document.querySelectorAll(".add-to-cart-button");
 addToCartButton.forEach((button) => {
-    // const plusIcon = button.querySelector(".plus-button");
-    // const minusIcon = button.querySelector(".minus-button");
-    // const count = button.querySelector(".count");
 
     let cartCount = 0
     button.addEventListener("click", () => {
