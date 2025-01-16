@@ -251,9 +251,32 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 30px;
     overflow-y: auto;
+}
+
+.pop-up-details::-webkit-scrollbar {
+    width: 8px;
+    height: 10%; 
+}
+
+.pop-up-details::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+}
+
+.pop-up-details::-webkit-scrollbar-thumb {
+    background: hsla(14, 73%, 46%, 0.829); 
+    border-radius: 10px; 
+}
+
+.pop-up-details::-webkit-scrollbar-thumb:hover {
+    background: var(--red); 
+}
+
+.pop-up-details::-webkit-scrollbar-button {
+    display: none;
 }
 
 /* ================ Media Queries ============================ */
