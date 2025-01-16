@@ -370,8 +370,6 @@ function displayOrderConfirmation(totalAmount) {
 
     const startNewOrderButton = document.querySelector(".js-start-new-order");
     startNewOrderButton.addEventListener("click", () => {
-        modalContainer.style.display = "none";
-        cart = [];
-        updateCart();
+        location.reload(true)
     });
 }
