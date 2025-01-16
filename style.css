@@ -335,7 +335,7 @@ body{
     }
     
     .products-grid {
-        grid-template-columns:  1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
       
     .add-to-cart-button{
@@ -348,7 +348,7 @@ body{
     }
     
     .cart {
-        width: 90%;
+        width: 70%;
         margin: 50px auto;
     }
     
@@ -373,6 +373,64 @@ body{
     
     .pop-up-details {
         width: 100%;
+        padding: 20px;
+    }
+    
+}
+
+/* ================ Small Laptops======================== */
+@media (min-width : 768px) and (max-width :991px){
+    .main {
+        padding: 10px;
+        width: 90%;
+        margin: 20px auto;
+        display: block;
+    }
+    
+    .desserts {
+        width: 100%;
+    }
+    
+    .desserts h1 {
+        padding-bottom: 20px;
+    }
+    
+      
+    .add-to-cart-button{
+        padding: 12px 25px;
+    }
+
+    
+    .image-cart-button {
+        padding-right: 5px;
+    }
+    
+    .cart {
+        width: 60%;
+        margin: 50px auto;
+    }
+    
+    
+    .cart-with-items {
+        width: 100%;
+    }
+    
+    .added-items {
+        padding: 15px 0px;
+        
+    }
+    
+    .carbon-neutral {
+        margin: 30px 0px;
+    }
+    
+    
+    .pop-up-container{
+        position: fixed;
+    }
+    
+    .pop-up-details {
+        width: 60%;
         padding: 20px;
     }
     
