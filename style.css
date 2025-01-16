@@ -57,6 +57,7 @@ body{
     position: relative;
     margin: 50px auto;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     gap: 3rem;
 }
