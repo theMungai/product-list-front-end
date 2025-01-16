@@ -87,17 +87,16 @@ const products = [
         category: "Brownie",
         price: 4.50
     },
-    ,
-     {
-        image: {
-            thumbnail: "images/image-panna-cotta-thumbnail.jpg",
-            mobile: "images/image-panna-cotta-mobile.jpg",
-            tablet: "images/image-panna-cotta-tablet.jpg",
-            desktop: "images/image-panna-cotta-desktop.jpg"
-        },
-        name: "Vanilla Panna Cotta",
-        category: "Panna Cotta",
-        price: 6.50
-     }
-    
+    {
+    image: {
+        thumbnail: "images/image-panna-cotta-thumbnail.jpg",
+        mobile: "images/image-panna-cotta-mobile.jpg",
+        tablet: "images/image-panna-cotta-tablet.jpg",
+        desktop: "images/image-panna-cotta-desktop.jpg"
+    },
+    name: "Vanilla Panna Cotta",
+    category: "Panna Cotta",
+    price: 6.50
+    }
+
 ]

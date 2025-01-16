@@ -40,7 +40,10 @@ addToCartButtons.forEach(button => {
         if (existingProduct) {
             existingProduct.quantity += 1;
         } else {
-            cart.push({ name: productName, price: productPrice, quantity: 1 });
+            cart.push({ 
+                name: productName, 
+                price: productPrice, 
+                quantity: 1 });
         }
         
         updateCart();
