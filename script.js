@@ -25,7 +25,7 @@ products.forEach((product) => {
                 </picture>
             </div>
 
-            <button class="add-to-cart-button">
+            <button class="add-to-cart-button" data-product-name = "${product.name}" data-product-price = "${product.price}">
                 <img src="/images/icon-add-to-cart.svg" alt="" class="image-cart-button">
                 Add to Cart
             </button>
@@ -43,11 +43,11 @@ document.querySelector(".js-product-grid").innerHTML = productsHTML
 
 
 const addToCartButton = document.querySelectorAll(".add-to-cart-button");
-addToCartButton.forEach((button) => {
-
+addToCartButton.forEach((button) => {  
     let cartCount = 0
     button.addEventListener("click", () => {
-        
+        const productName = button.dataset.productName;
+        const productPrice = button.dataset.productPrice
         let cartHTML = "";
         products.forEach((product) => {
             cartHTML =
@@ -55,13 +55,13 @@ addToCartButton.forEach((button) => {
                 <div class="cart-items-container">
                     <div class="added-items">
                         <div class="full-product-in-cart">
-                            <p style="color: hsl(14, 65%, 9%); font-weight: 500;">${product.name}</p>
+                            <p style="color: hsl(14, 65%, 9%); font-weight: 500;">${productName}</p>
                         </div>
 
                         <div class="cart-price-product">
                             <span style="color: hsl(14, 86%, 42%); font-weight: 450; padding-right: 10px;">${cartCount}x</span>
-                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${(product.price).toFixed(2)}</span>
-                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(product.price * cartCount).toFixed(2)}</span>
+                            <span style="color: hsl(7, 20%, 60%); padding: 0px 10px;">@ $${(productPrice * 1).toFixed(2)}</span>
+                            <span style="color: hsl(12, 20%, 44%);font-weight: 480">$${(productPrice * cartCount).toFixed(2)}</span>
                         </div>
 
                     </div>
@@ -89,7 +89,7 @@ addToCartButton.forEach((button) => {
             button.innerHTML = `
                 <img src="images/icon-decrement-quantity.svg" alt="" class = "minus-button">
                 <p class = "count">${cartCount}</p>
-                <img src="images/icon-increment-quantity.svg" alt="" class = "plus-button" data-product-name = "${product.name}">
+                <img src="images/icon-increment-quantity.svg" alt="" class = "plus-button">
             `;
 
             
@@ -103,7 +103,6 @@ addToCartButton.forEach((button) => {
 
             updatedPlusIcon.addEventListener("click", () => {
                 cartCount += 1;
-                console.log(updatedPlusIcon.dataset.productName)
                 updatedCount.textContent = cartCount;
                 quantityDisplay.textContent = cartCount
                 emptyCart.style.display = "none";

@@ -86,7 +86,7 @@ const products = [
         name: "Salted Caramel Brownie",
         category: "Brownie",
         price: 4.50
-    }
+    },
     ,
      {
         image: {
@@ -99,4 +99,5 @@ const products = [
         category: "Panna Cotta",
         price: 6.50
      }
+    
 ]
