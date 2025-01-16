@@ -25,6 +25,31 @@ body{
     font-family: "Red Hat Text";
 }
 
+/* Styling Scrollbar for the whole page */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 10%; 
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsla(14, 76%, 68%, 0.712); 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsla(14, 73%, 46%, 0.829); 
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+
 .main {
     padding: 30px;
     width: 80%;
