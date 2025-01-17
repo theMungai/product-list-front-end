@@ -82,7 +82,7 @@ function updateCart() {
         totalAmount += item.price * item.quantity;
     });
     
-    cartQuantity.textContent = cart.length;
+    cartQuantity.textContent = cart.reduce((acc, item) => item.quantity + acc, 0);
     
     const totalHTML = `
         <div class="total">
