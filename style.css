@@ -282,26 +282,26 @@ body{
     overflow-y: auto;
 }
 
-.pop-up-details::-webkit-scrollbar {
+.pop-up-details .cart-items-container::-webkit-scrollbar {
     width: 8px;
     height: 10%; 
 }
 
-.pop-up-details::-webkit-scrollbar-track {
+.pop-up-details .cart-items-container::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1); 
     border-radius: 10px; 
 }
 
-.pop-up-details::-webkit-scrollbar-thumb {
+.pop-up-details .cart-items-container::-webkit-scrollbar-thumb {
     background: hsla(14, 73%, 46%, 0.829); 
     border-radius: 10px; 
 }
 
-.pop-up-details::-webkit-scrollbar-thumb:hover {
+.pop-up-details .cart-items-container::-webkit-scrollbar-thumb:hover {
     background: var(--red); 
 }
 
-.pop-up-details::-webkit-scrollbar-button {
+.pop-up-details .cart-items-container::-webkit-scrollbar-button {
     display: none;
 }
 
